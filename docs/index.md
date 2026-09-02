@@ -8,7 +8,7 @@ OmniRoute is an AI gateway for routing coding agents across multiple LLM provide
 
 - [Repository README](../README.md) — installation, configuration, supported clients, routing, providers, and usage.
 - [Upstream product site](https://omniroute.online) — product-facing website maintained by the upstream project.
-- [Releases](https://github.com/ContextualWisdomLab/OmniRoute/releases) — immutable release evidence for this fork when published.
+- [Releases](https://github.com/ContextualWisdomLab/OmniRoute/releases) — published release records for this fork when available; verify tags, artifacts, provenance, and repository policy before treating a release as immutable deployment evidence.
 - [Ask DeepWiki](https://deepwiki.com/ContextualWisdomLab/OmniRoute) — repository-grounded navigation and questions.
 
 ## Public-surface boundary
