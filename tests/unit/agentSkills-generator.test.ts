@@ -463,6 +463,31 @@ test("buildSkillMarkdown keeps POST curl headers in one continued command", () =
   );
 });
 
+test("buildSkillMarkdown documents OIDC as a browser redirect flow", () => {
+  refreshCatalog();
+  const sources = emptySources();
+  sources.openapi.areas.set("auth", [
+    {
+      method: "GET",
+      path: "/api/auth/oidc/login",
+      summary: "Start OIDC login",
+      tags: ["Auth"],
+    },
+    {
+      method: "GET",
+      path: "/api/auth/oidc/callback",
+      summary: "Complete OIDC login",
+      tags: ["Auth"],
+    },
+  ]);
+
+  const result = buildSkillMarkdown("omni-auth", sources);
+  assert.ok(result.body.includes("Open this endpoint in a browser"));
+  assert.ok(result.body.includes("Do not call this callback directly"));
+  assert.ok(!result.body.includes("curl https://localhost:20128/api/auth/oidc/login"));
+  assert.ok(!result.body.includes("curl https://localhost:20128/api/auth/oidc/callback"));
+});
+
 test("buildSkillMarkdown CLI skill body contains expected sections", () => {
   refreshCatalog();
   const sources = emptySources();

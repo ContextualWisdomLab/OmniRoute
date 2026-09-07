@@ -46,9 +46,10 @@ sets a short-lived `oidc_state` cookie, and redirects the browser. Password logi
 remains available as a fallback while OIDC is enabled.
 
 
-```bash
-curl https://localhost:20128/api/auth/oidc/login \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+Open this endpoint in a browser. OmniRoute stores a short-lived state cookie, sends the same state to the identity provider, and follows the redirect flow.
+
+```text
+https://localhost:20128/api/auth/oidc/login
 ```
 
 ### GET /api/auth/oidc/callback
@@ -62,10 +63,7 @@ that allowlist. On success it mints the same 30-day `auth_token` dashboard-sessi
 JWT used by password login and redirects to `/dashboard`.
 
 
-```bash
-curl https://localhost:20128/api/auth/oidc/callback \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
-```
+Do not call this callback directly. The identity provider redirects the browser here with `code` and `state`, while the browser returns the bound state cookie.
 
 ## Payloads
 
