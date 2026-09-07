@@ -31,9 +31,9 @@ The fork should not turn provider marketing, free-tier estimates, upstream popul
 
 The current source is a Node/TypeScript application using Next.js, an `open-sse` workspace for streaming/provider execution, SQLite-backed local state, and Electron for the desktop build. Repository guidance and executable checks are the authority for exact implementation details:
 
-- [Contributing](https://github.com/ContextualWisdomLab/OmniRoute/blob/main/CONTRIBUTING.md) — supported Node versions, source setup, tests, coverage, build and PR gates.
-- [Agent guidelines](https://github.com/ContextualWisdomLab/OmniRoute/blob/main/AGENTS.md) — repository-specific documentation accuracy and implementation conventions.
-- [Documentation](https://github.com/ContextualWisdomLab/OmniRoute/tree/main/docs) — user, provider, routing, security, architecture, operations and reference material.
+- [Contributing](https://github.com/ContextualWisdomLab/OmniRoute/blob/release/v3.8.50/CONTRIBUTING.md) — supported Node versions, source setup, tests, coverage, build and PR gates.
+- [Agent guidelines](https://github.com/ContextualWisdomLab/OmniRoute/blob/release/v3.8.50/AGENTS.md) — repository-specific documentation accuracy and implementation conventions.
+- [Documentation](https://github.com/ContextualWisdomLab/OmniRoute/tree/release/v3.8.50/docs) — user, provider, routing, security, architecture, operations and reference material.
 - [Ask DeepWiki](https://deepwiki.com/ContextualWisdomLab/OmniRoute) — repository-grounded navigation and questions.
 
 GitHub Checks on an unchanged exact commit remain the authoritative hosted evidence for a pull request. A passing predecessor head, upstream build, or source version does not transfer to a changed fork head.
@@ -46,6 +46,6 @@ This `docs/index.md` file is a public-documentation source prerequisite only. It
 
 ## License and provenance
 
-Root [`LICENSE`](https://github.com/ContextualWisdomLab/OmniRoute/blob/main/LICENSE) preserves the upstream **MIT License** and `Copyright (c) 2026 diegosouzapw`. The root package metadata also declares MIT and points to the upstream `diegosouzapw/OmniRoute` project.
+Root [`LICENSE`](https://github.com/ContextualWisdomLab/OmniRoute/blob/release/v3.8.50/LICENSE) preserves the upstream **MIT License** and `Copyright (c) 2026 diegosouzapw`. The root package metadata also declares MIT and points to the upstream `diegosouzapw/OmniRoute` project.
 
 ContextualWisdomLab maintenance does not replace that copyright or relicense third-party packages, provider services, model APIs, desktop/runtime dependencies, or external assets. Those components retain their own licenses and terms.
