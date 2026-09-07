@@ -22,7 +22,7 @@ OpenAI-compatible chat completions endpoint. Routes to configured providers.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/chat/completions \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -46,7 +46,7 @@ Routes to a specific provider by name.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/providers/{provider}/chat/completions \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -59,7 +59,7 @@ Provides compatibility with Ollama's /api/chat format.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/api/chat \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -72,7 +72,7 @@ Anthropic Messages API endpoint. Routes to Claude providers.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/messages \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -83,7 +83,7 @@ Count tokens for a message
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/messages/count_tokens \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -96,7 +96,7 @@ OpenAI Responses API endpoint.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/responses \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -107,7 +107,7 @@ Create embeddings
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/embeddings \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -118,7 +118,7 @@ Create embeddings (provider-specific)
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/providers/{provider}/embeddings \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -129,7 +129,7 @@ Generate images
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/images/generations \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -140,7 +140,7 @@ Generate images (provider-specific)
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/providers/{provider}/images/generations \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -153,7 +153,7 @@ Text-to-speech endpoint. Routes to configured TTS providers.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/audio/speech \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -166,7 +166,7 @@ Audio-to-text transcription endpoint.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/audio/transcriptions \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -179,7 +179,7 @@ Content moderation endpoint. Routes to configured moderation providers.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/moderations \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -192,7 +192,7 @@ Document reranking endpoint.
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/rerank \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -227,7 +227,7 @@ Mistral OCR–compatible document OCR endpoint. Accepts a JSON body referencing 
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/ocr \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -240,7 +240,7 @@ OpenAI Whisper–compatible audio translation (multipart/form-data). Unlike `/ap
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/audio/translations \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```

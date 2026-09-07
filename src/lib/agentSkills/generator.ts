@@ -107,10 +107,11 @@ function buildApiBody(skill: AgentSkill, sources: BuildSources): string {
       }
       // Minimal curl example
       const curlMethod = op.method === "GET" ? "" : `-X ${op.method} `;
+      const hasJsonBody = ["POST", "PUT", "PATCH"].includes(op.method);
       lines.push("```bash");
       lines.push(`curl ${curlMethod}https://localhost:20128${op.path} \\`);
-      lines.push('  -H "Authorization: Bearer $OMNIROUTE_TOKEN"');
-      if (["POST", "PUT", "PATCH"].includes(op.method)) {
+      lines.push(`  -H "Authorization: Bearer $OMNIROUTE_TOKEN"${hasJsonBody ? " \\" : ""}`);
+      if (hasJsonBody) {
         lines.push('  -H "Content-Type: application/json" \\');
         lines.push("  -d '{}'");
       }

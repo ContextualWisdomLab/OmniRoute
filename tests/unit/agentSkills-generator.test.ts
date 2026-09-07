@@ -444,6 +444,25 @@ test("buildSkillMarkdown API skill body contains expected sections", () => {
   assert.ok(result.body.includes("## Payloads"), "Missing Payloads section");
 });
 
+test("buildSkillMarkdown keeps POST curl headers in one continued command", () => {
+  refreshCatalog();
+  const sources = emptySources();
+  sources.openapi.areas.set("auth", [
+    {
+      method: "POST",
+      path: "/api/auth/login",
+      summary: "Log in",
+      tags: ["Auth"],
+    },
+  ]);
+
+  const result = buildSkillMarkdown("omni-auth", sources);
+  assert.ok(
+    result.body.includes('-H "Authorization: Bearer $OMNIROUTE_TOKEN" \\\n  -H "Content-Type: application/json" \\'),
+    "POST curl example must continue from Authorization to Content-Type",
+  );
+});
+
 test("buildSkillMarkdown CLI skill body contains expected sections", () => {
   refreshCatalog();
   const sources = emptySources();

@@ -33,7 +33,7 @@ Creates a subscription record. If `mode` is `rule`, at least one entry in `ruleP
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/management/proxy-subscriptions \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -55,7 +55,7 @@ Partial update — only fields present in the body are changed (name/url/mode/ru
 
 ```bash
 curl -X PATCH https://localhost:20128/api/v1/management/proxy-subscriptions/{id} \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -90,7 +90,7 @@ Re-fetches and re-parses the subscription URL, syncs its nodes into `proxy_regis
 
 ```bash
 curl -X POST https://localhost:20128/api/v1/management/proxy-subscriptions/{id}/refresh \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```

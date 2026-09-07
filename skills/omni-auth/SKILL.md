@@ -20,7 +20,7 @@ Authenticate user
 
 ```bash
 curl -X POST https://localhost:20128/api/auth/login \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -31,7 +31,7 @@ Log out
 
 ```bash
 curl -X POST https://localhost:20128/api/auth/logout \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
