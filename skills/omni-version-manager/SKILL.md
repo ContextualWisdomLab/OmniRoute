@@ -22,7 +22,7 @@ Installs the `9router` npm package under DATA_DIR/services/9router/. Uses execFi
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/install \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -35,7 +35,7 @@ Spawns the 9Router process. Idempotent if already running. **LOCAL_ONLY** — lo
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -48,7 +48,7 @@ Gracefully stops 9Router (SIGTERM → 15 s → SIGKILL). Idempotent. **LOCAL_ONL
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/stop \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -61,7 +61,7 @@ Equivalent to stop() then start() under the operation lock. **LOCAL_ONLY** — l
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/restart \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -74,7 +74,7 @@ Stops the service (if running), installs the newer npm version, then restarts. *
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/update \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -87,7 +87,7 @@ Generates a new API key, encrypts it at-rest, and restarts the service to apply 
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/rotate-key \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -111,7 +111,7 @@ When enabled, 9Router starts automatically on the next OmniRoute boot. **LOCAL_O
 
 ```bash
 curl -X POST https://localhost:20128/api/services/9router/auto-start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -124,7 +124,7 @@ Installs the CLIProxyAPI package under DATA_DIR/services/cliproxy/. **LOCAL_ONLY
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/install \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -137,7 +137,7 @@ Spawns the CLIProxyAPI process. Idempotent if already running. **LOCAL_ONLY** �
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -150,7 +150,7 @@ Gracefully stops CLIProxyAPI. Idempotent. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/stop \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -163,7 +163,7 @@ stop() then start() under the operation lock. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/restart \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -176,7 +176,7 @@ Stops, installs newer version, restarts. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/update \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -200,7 +200,7 @@ When enabled, CLIProxyAPI starts automatically on the next OmniRoute boot. **LOC
 
 ```bash
 curl -X POST https://localhost:20128/api/services/cliproxy/auto-start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -213,7 +213,7 @@ Installs the `mux` npm package (coder/mux — local agent-orchestration daemon) 
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/install \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -226,7 +226,7 @@ Spawns `mux server --host 127.0.0.1 --port <port>`. Idempotent if already runnin
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -239,7 +239,7 @@ Gracefully stops Mux. Idempotent. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/stop \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -252,7 +252,7 @@ stop() then start() under the operation lock. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/restart \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -265,7 +265,7 @@ Stops, installs newer version, restarts. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/update \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -289,7 +289,7 @@ When enabled, Mux starts automatically on the next OmniRoute boot. **LOCAL_ONLY*
 
 ```bash
 curl -X POST https://localhost:20128/api/services/mux/auto-start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -302,7 +302,7 @@ Installs the `@maximhq/bifrost` npm package under DATA_DIR/services/bifrost/. Th
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/install \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -315,7 +315,7 @@ Starts the supervised Bifrost process. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -328,7 +328,7 @@ Stops the supervised Bifrost process. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/stop \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -341,7 +341,7 @@ Restarts the supervised Bifrost process. **LOCAL_ONLY** — loopback only.
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/restart \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -354,7 +354,7 @@ Updates Bifrost to the latest npm version. Stops the running process, installs t
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/update \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -378,7 +378,7 @@ When enabled, Bifrost starts automatically on the next OmniRoute boot. **LOCAL_O
 
 ```bash
 curl -X POST https://localhost:20128/api/services/bifrost/auto-start \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```

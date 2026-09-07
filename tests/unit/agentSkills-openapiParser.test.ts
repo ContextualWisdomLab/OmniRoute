@@ -82,6 +82,10 @@ paths:
     post:
       tags: [Chat]
       summary: Create chat completion
+  /api/v1/management/proxy-subscriptions:
+    get:
+      tags: [ProxySubscriptions]
+      summary: List proxy subscriptions
   /api/settings:
     get:
       tags: [Settings]
@@ -158,6 +162,25 @@ test("parseOpenapi() groups /api/v1/* under 'inference' area", () => {
     assert.ok(
       inferenceOps!.some((op) => op.path === "/api/v1/chat/completions"),
       "Expected /api/v1/chat/completions in inference area"
+    );
+  } finally {
+    cleanup();
+  }
+});
+
+test("parseOpenapi() keeps proxy management outside the inference area", () => {
+  const { cleanup } = withFixtureOpenapi(FIXTURE_YAML);
+  try {
+    const { areas } = parseOpenapi();
+    const proxyPath = "/api/v1/management/proxy-subscriptions";
+
+    assert.ok(
+      areas.get("proxies")?.some((op) => op.path === proxyPath),
+      "Expected proxy subscriptions in proxies area"
+    );
+    assert.ok(
+      !areas.get("inference")?.some((op) => op.path === proxyPath),
+      "Proxy subscriptions must not be classified as inference"
     );
   } finally {
     cleanup();

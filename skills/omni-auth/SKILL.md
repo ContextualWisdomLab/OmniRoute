@@ -20,7 +20,7 @@ Authenticate user
 
 ```bash
 curl -X POST https://localhost:20128/api/auth/login \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -31,10 +31,39 @@ Log out
 
 ```bash
 curl -X POST https://localhost:20128/api/auth/logout \
-  -H "Authorization: Bearer $OMNIROUTE_TOKEN"
+  -H "Authorization: Bearer $OMNIROUTE_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
+
+### GET /api/auth/oidc/login
+
+Start OIDC login for the dashboard admin gate
+
+Builds an authorization URL from the configured OIDC issuer/client (discovered
+via `{issuer}/.well-known/openid-configuration`, falling back to `{issuer}/authorize`),
+sets a short-lived `oidc_state` cookie, and redirects the browser. Password login
+remains available as a fallback while OIDC is enabled.
+
+
+Open this endpoint in a browser. OmniRoute stores a short-lived state cookie, sends the same state to the identity provider, and follows the redirect flow.
+
+```text
+https://localhost:20128/api/auth/oidc/login
+```
+
+### GET /api/auth/oidc/callback
+
+Complete OIDC login for the dashboard admin gate
+
+Validates the `state` cookie, exchanges the authorization `code` for tokens,
+verifies the ID token against the issuer's JWKS (audience = client id), and —
+if `oidcAllowedSubjects` is configured — checks the token's `sub`/`email` against
+that allowlist. On success it mints the same 30-day `auth_token` dashboard-session
+JWT used by password login and redirects to `/dashboard`.
+
+
+Do not call this callback directly. The identity provider redirects the browser here with `code` and `state`, while the browser returns the bound state cookie.
 
 ## Payloads
 
