@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCachedSettings } from "@/lib/localDb";
+import { bindAuthorizationState } from "@/lib/auth/oidcAuthorization";
 
 /**
  * GET /api/auth/oidc/login
@@ -73,6 +74,7 @@ export async function GET(request: Request) {
   url.searchParams.set("client_id", clientId);
   url.searchParams.set("redirect_uri", redirectUri);
   url.searchParams.set("scope", scope);
+  bindAuthorizationState(url, state);
   const isHttpsRequest = scheme === "https";
   const useSecureCookie = process.env.AUTH_COOKIE_SECURE === "true" || isHttpsRequest;
 

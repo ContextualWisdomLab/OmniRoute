@@ -66,6 +66,7 @@ const PATH_AREA_MAP: Array<[string, SkillArea]> = [
   ["/api/tags", "settings"],
   // Proxies
   ["/api/settings/proxy", "proxies"],
+  ["/api/v1/management/proxy-subscriptions", "proxies"],
   // Cache
   ["/api/cache", "cache"],
   // Compression / RTK

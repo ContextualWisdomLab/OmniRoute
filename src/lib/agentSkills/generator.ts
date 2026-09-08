@@ -105,12 +105,33 @@ function buildApiBody(skill: AgentSkill, sources: BuildSources): string {
         lines.push(op.description);
         lines.push("");
       }
+      if (op.path === "/api/auth/oidc/login") {
+        lines.push(
+          "Open this endpoint in a browser. OmniRoute stores a short-lived state cookie, " +
+            "sends the same state to the identity provider, and follows the redirect flow."
+        );
+        lines.push("");
+        lines.push("```text");
+        lines.push("https://localhost:20128/api/auth/oidc/login");
+        lines.push("```");
+        lines.push("");
+        continue;
+      }
+      if (op.path === "/api/auth/oidc/callback") {
+        lines.push(
+          "Do not call this callback directly. The identity provider redirects the browser " +
+            "here with `code` and `state`, while the browser returns the bound state cookie."
+        );
+        lines.push("");
+        continue;
+      }
       // Minimal curl example
       const curlMethod = op.method === "GET" ? "" : `-X ${op.method} `;
+      const hasJsonBody = ["POST", "PUT", "PATCH"].includes(op.method);
       lines.push("```bash");
       lines.push(`curl ${curlMethod}https://localhost:20128${op.path} \\`);
-      lines.push('  -H "Authorization: Bearer $OMNIROUTE_TOKEN"');
-      if (["POST", "PUT", "PATCH"].includes(op.method)) {
+      lines.push(`  -H "Authorization: Bearer $OMNIROUTE_TOKEN"${hasJsonBody ? " \\" : ""}`);
+      if (hasJsonBody) {
         lines.push('  -H "Content-Type: application/json" \\');
         lines.push("  -d '{}'");
       }
